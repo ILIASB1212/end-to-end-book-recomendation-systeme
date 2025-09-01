@@ -1,6 +1,6 @@
 import yaml
 import sys
-from exception.exception_handler import AppException
+from books_recommendation_systeme.exception.exception_handler import AppException
 
 
 

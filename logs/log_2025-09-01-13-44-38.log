@@ -1,0 +1,15 @@
+[2025-09-01 13:45:31,058] root - INFO - Model Recommendation Config: ModelRecommendationConfig(book_name_serialized_objects='artifact\\serialized_objects\\book_names.pkl', book_pivot_serialized_objects='artifact\\serialized_objects\\book_pivot.pkl', final_rating_serialized_objects='artifact\\serialized_objects\\final_rating.pkl', trained_model_path='artifact\\trained_model\\model.pkl')
+[2025-09-01 13:45:33,265] root - INFO - Model Recommendation Config: ModelRecommendationConfig(book_name_serialized_objects='artifact\\serialized_objects\\book_names.pkl', book_pivot_serialized_objects='artifact\\serialized_objects\\book_pivot.pkl', final_rating_serialized_objects='artifact\\serialized_objects\\final_rating.pkl', trained_model_path='artifact\\trained_model\\model.pkl')
+[2025-09-01 13:45:33,267] root - INFO - ====================Data Ingestion log started.==================== 
+[2025-09-01 13:45:33,268] root - INFO - Data Ingestion Config: DatasetConfig(dataset_download_url='https://github.com/ILIASB1212/end-to-end-book-recomendation-systeme/raw/refs/heads/master/csvs.zip', raw_data_dir='artifact\\dataset\\raw_data', ingested_dir='artifact\\dataset\\ingested_data')
+[2025-09-01 13:45:33,268] root - INFO - Data Validation Config: DataValidationConfig(clean_data_dir='artifact\\dataset\\clean_data', books_csv_file='artifact\\dataset\\ingested_data\\BX-Books.csv', ratings_csv_file='artifact\\dataset\\ingested_data\\BX-Book-Ratings.csv', serialized_objects_dir='artifact\\serialized_objects')
+[2025-09-01 13:45:33,268] root - INFO - Data Transformation Config: DataTransformationConfig(clean_data_file_path='artifact\\dataset\\clean_data\\clean_data.csv', transformed_data_dir='artifact\\dataset\\transformed_data')
+[2025-09-01 13:45:33,269] root - INFO - Data Validation Config: DataValidationConfig(clean_data_dir='artifact\\dataset\\clean_data', books_csv_file='artifact\\dataset\\ingested_data\\BX-Books.csv', ratings_csv_file='artifact\\dataset\\ingested_data\\BX-Book-Ratings.csv', serialized_objects_dir='artifact\\serialized_objects')
+[2025-09-01 13:45:33,269] root - INFO - Model Trainer Config: ModelTrainerConfig(transformed_data_file_dir='artifact\\dataset\\transformed_data\\transformed_data.pkl', trained_model_dir='artifact\\trained_model', trained_model_name='model.pkl')
+[2025-09-01 13:45:33,274] root - INFO - Downloading data from https://github.com/ILIASB1212/end-to-end-book-recomendation-systeme/raw/refs/heads/master/csvs.zip into file artifact\dataset\raw_data\csvs.zip
+[2025-09-01 13:45:54,941] root - INFO - Downloaded data from https://github.com/ILIASB1212/end-to-end-book-recomendation-systeme/raw/refs/heads/master/csvs.zip into file artifact\dataset\raw_data\csvs.zip
+[2025-09-01 13:45:55,836] root - INFO - Extracting zip file: artifact\dataset\raw_data\csvs.zip into dir: artifact\dataset\ingested_data
+[2025-09-01 13:45:55,836] root - INFO - ====================Data Ingestion log completed.==================== 
+
+
+[2025-09-01 13:45:55,836] root - INFO - ====================Data Validation log started.==================== 

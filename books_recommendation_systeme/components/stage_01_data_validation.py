@@ -3,10 +3,10 @@ import sys
 import ast 
 import pandas as pd
 import pickle
+import joblib
 from books_recommendation_systeme.logger.log import logging
 from books_recommendation_systeme.config.configuration import AppConfiguration
 from books_recommendation_systeme.exception.exception_handler import AppException
-
 
 
 class DataValidation:
@@ -21,8 +21,8 @@ class DataValidation:
 
     def preprocess_data(self):
         try:
-            ratings = pd.read_csv(self.data_validation_config.ratings_csv_file, sep=";", error_bad_lines=False, encoding='latin-1')
-            books = pd.read_csv(self.data_validation_config.books_csv_file, sep=";", error_bad_lines=False, encoding='latin-1')
+            ratings = pd.read_csv(self.data_validation_config.ratings_csv_file, sep=";", on_bad_lines='skip', encoding='latin-1')
+            books = pd.read_csv(self.data_validation_config.books_csv_file, sep=";", on_bad_lines='skip', encoding='latin-1')
             
             logging.info(f" Shape of ratings data file: {ratings.shape}")
             logging.info(f" Shape of books data file: {books.shape}")

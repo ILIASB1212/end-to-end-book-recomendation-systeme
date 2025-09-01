@@ -7,7 +7,7 @@ from books_recommendation_systeme.logger.log import logging
 from books_recommendation_systeme.config.configuration import AppConfiguration
 from books_recommendation_systeme.pipeline.training_pipeline import TrainingPipeline
 from books_recommendation_systeme.exception.exception_handler import AppException
-
+import joblib
 
 
 class Recommendation:
@@ -25,18 +25,18 @@ class Recommendation:
             book_name = []
             ids_index = []
             poster_url = []
-            book_pivot =  pickle.load(open(self.recommendation_config.book_pivot_serialized_objects,'rb'))
-            final_rating =  pickle.load(open(self.recommendation_config.final_rating_serialized_objects,'rb'))
+            book_pivot =  joblib.load(open(self.recommendation_config.book_pivot_serialized_objects,'rb'))
+            final_rating =  joblib.load(open(self.recommendation_config.final_rating_serialized_objects,'rb'))
 
             for book_id in suggestion:
                 book_name.append(book_pivot.index[book_id])
 
             for name in book_name[0]: 
-                ids = np.where(final_rating['title'] == name)[0][0]
+                ids = np.where(final_rating['Book-Title'] == name)[0][0]
                 ids_index.append(ids)
 
             for idx in ids_index:
-                url = final_rating.iloc[idx]['image_url']
+                url = final_rating.iloc[idx]['Image-URL-L']
                 poster_url.append(url)
 
             return poster_url
@@ -49,8 +49,8 @@ class Recommendation:
     def recommend_book(self,book_name):
         try:
             books_list = []
-            model = pickle.load(open(self.recommendation_config.trained_model_path,'rb'))
-            book_pivot =  pickle.load(open(self.recommendation_config.book_pivot_serialized_objects,'rb'))
+            model = joblib.load(open(self.recommendation_config.trained_model_path,'rb'))
+            book_pivot =  joblib.load(open(self.recommendation_config.book_pivot_serialized_objects,'rb'))
             book_id = np.where(book_pivot.index == book_name)[0][0]
             distance, suggestion = model.kneighbors(book_pivot.iloc[book_id,:].values.reshape(1,-1), n_neighbors=6 )
 
@@ -111,8 +111,8 @@ if __name__ == "__main__":
     obj = Recommendation()
 
     #Training
-    if st.button('Train Recommender System'):
-        obj.train_engine()
+    #if st.button('Train Recommender System'):
+        #obj.train_engine()
 
     book_names = pickle.load(open(os.path.join('templates','book_names.pkl') ,'rb'))
     selected_books = st.selectbox(
