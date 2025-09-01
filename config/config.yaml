@@ -1,5 +1,5 @@
 artifacts_config:
-  artifacts_dir: models_f
+  artifacts_dir: artifact
 
 data_ingestion_config:
   dataset_download_url: https://github.com/ILIASB1212/end-to-end-book-recomendation-systeme/raw/refs/heads/master/csvs.zip
